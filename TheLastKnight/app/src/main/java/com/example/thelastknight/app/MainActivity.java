@@ -1,8 +1,10 @@
-package com.example.thelastknight;
+package com.example.thelastknight.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.thelastknight.R;
 
 public class MainActivity extends AppCompatActivity {
 
