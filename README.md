@@ -19,14 +19,28 @@
 ![image](https://user-images.githubusercontent.com/111038432/229532608-86807c92-8f98-4c7f-ba41-4f04a6f742d3.png)<br/>
 
 2차발표
-기사 캐릭터를 조종해 양쪽에서 끊임없이 몰려오는 적을 무찔러서 높은 점수를 획득하는 것
+기사 캐릭터를 조종해 양쪽에서 끊임없이 몰려오는 적을 무찔러서 높은 점수를 획득하는 것<br/>
 
-주별 진행상황
-리소스 수집 70%
-게임오브젝트 배치 80%
-캐릭터 이동 20%
-몬스터 소환 및 이동 0%
+주별 진행상황<br/>
+리소스 수집 70%<br/>
+게임오브젝트 배치 80%<br/>
+캐릭터 이동 20%<br/>
+몬스터 소환 및 이동 0%<br/>
+
+![image](https://user-images.githubusercontent.com/111038432/236987996-9df15585-5ea8-418d-998c-574e5019bbae.png)<br/>
+
+진행상황이 많이 더딘 편<br/>
+졸업작품 준비 때문에 텀프에 시간을 거의 할애하지 못함<br/>
+
+MainScene <br/>
+background<br/>
+![image](https://user-images.githubusercontent.com/111038432/236990017-1d776071-358d-4b1c-8027-db31954744b4.png)<br/>
+현재는 배경 하나뿐이지만 다른 배경이나 필살기배경을 추가할 예정<br/>
+
+player<br/>
+![image](https://user-images.githubusercontent.com/111038432/236990228-72f0f925-69f7-45b4-b43a-caad75b4e535.png)<br/>
+
+touch<br/>
+![image](https://user-images.githubusercontent.com/111038432/236990357-060f9959-4655-49f2-aec6-4fb80177fa01.png)<br/>
 
 
-
-MainScene 
