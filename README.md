@@ -17,3 +17,16 @@
 ![image](https://user-images.githubusercontent.com/111038432/229532591-a6507c2a-d208-4408-ab37-66d008b251e8.png)<br/>
 
 ![image](https://user-images.githubusercontent.com/111038432/229532608-86807c92-8f98-4c7f-ba41-4f04a6f742d3.png)<br/>
+
+2차발표
+기사 캐릭터를 조종해 양쪽에서 끊임없이 몰려오는 적을 무찔러서 높은 점수를 획득하는 것
+
+주별 진행상황
+리소스 수집 70%
+게임오브젝트 배치 80%
+캐릭터 이동 20%
+몬스터 소환 및 이동 0%
+
+
+
+MainScene 
