@@ -30,7 +30,7 @@ public class MainScene extends BaseScene {
         player = new Player();
         add(Layer.player, player);
 
-        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 1.5f, 8.0f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 1.0f, 8.0f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 //Log.d(TAG, "Button: Slide");
@@ -38,7 +38,7 @@ public class MainScene extends BaseScene {
                 return true;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 14.5f, 7.7f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 1.0f, 6.5f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
@@ -48,7 +48,7 @@ public class MainScene extends BaseScene {
                 return true;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 14.5f, 8.5f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 15.0f, 8.0f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
@@ -58,7 +58,18 @@ public class MainScene extends BaseScene {
                 return true;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 14.5f, 8.5f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 15.0f, 6.5f, 1.0f, 1.0f, new Button.Callback() {
+            @Override
+            public boolean onTouch(Button.Action action) {
+                if (action == Button.Action.pressed) {
+                    player.fall();
+                }
+                //Log.d(TAG, "Button: Fall");
+                return true;
+            }
+        }));
+
+        add(Layer.touch, new Button(R.mipmap.gaugebar_min, 8.0f, 8.0f, 4.0f, 0.5f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {

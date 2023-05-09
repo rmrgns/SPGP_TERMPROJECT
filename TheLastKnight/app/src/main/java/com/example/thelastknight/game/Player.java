@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class Player extends AnimSprite implements IBoxCollidable {
     private float jumpSpeed;
     private static final float JUMP_POWER = 9.0f;
-    private static final float GRAVITY = 17.0f;
+    private static final float GRAVITY = 1.0f;
     private RectF collisionRect = new RectF();
     protected Obstacle obstacle;
 
     public Player() {
-        super(R.mipmap.cookie_player_sheet, 2.0f, 3.0f, 3.86f, 3.86f, 8, 1);
+        super(R.mipmap.chr_sd, 8.0f, 5.5f, 3.0f, 3.0f, 8, 1);
         fixCollisionRect();
     }
 
@@ -60,24 +60,6 @@ public class Player extends AnimSprite implements IBoxCollidable {
     @Override
     public void update() {
         switch (state) {
-        case jump:
-        case doubleJump:
-        case falling:
-            float dy = jumpSpeed * BaseScene.frameTime;
-            jumpSpeed += GRAVITY * BaseScene.frameTime;
-            if (jumpSpeed >= 0) { // 낙하하고 있다면 발밑에 땅이 있는지 확인한다
-                float foot = collisionRect.bottom;
-                float floor = findNearestPlatformTop(foot);
-                if (foot + dy >= floor) {
-                    dy = floor - foot;
-                    state = State.running;
-                }
-            }
-            y += dy;
-            //fixDstRect();
-            dstRect.offset(0, dy);
-            fixCollisionRect();
-            break;
         case running:
         case slide:
             float foot = collisionRect.bottom;
