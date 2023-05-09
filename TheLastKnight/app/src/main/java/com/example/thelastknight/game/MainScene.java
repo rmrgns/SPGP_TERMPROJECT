@@ -17,15 +17,13 @@ public class MainScene extends BaseScene {
     private final Player player;
 
     public enum Layer {
-        bg, platform, item, obstacle, player, ui, touch, controller, COUNT
+        bg, player, ui, platform ,obstacle, touch, controller, COUNT
     }
     public MainScene(Context context) {
         Metrics.setGameSize(16.0f, 9.0f);
         initLayers(Layer.COUNT);
 
         add(Layer.bg, new HorzScrollBackground(R.mipmap.bg, -0.2f));
-        //add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_2, -0.4f));
-        //add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_3, -0.6f));
 
         player = new Player();
         add(Layer.player, player);
@@ -33,8 +31,7 @@ public class MainScene extends BaseScene {
         add(Layer.touch, new Button(R.mipmap.atk_btn_1, 1.0f, 8.0f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                //Log.d(TAG, "Button: Slide");
-                player.slide(action == Button.Action.pressed);
+                player.attack1();
                 return true;
             }
         }));
@@ -42,9 +39,8 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
-                    player.jump();
+                    player.attack2();
                 }
-                //Log.d(TAG, "Button: Jump");
                 return true;
             }
         }));
@@ -52,9 +48,8 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
-                    player.fall();
+                    player.attack1();
                 }
-                //Log.d(TAG, "Button: Fall");
                 return true;
             }
         }));
@@ -62,9 +57,8 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
-                    player.fall();
+                    player.attack2();
                 }
-                //Log.d(TAG, "Button: Fall");
                 return true;
             }
         }));
@@ -73,23 +67,30 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
-                    player.fall();
+                    player.gaugeAttack();
                 }
-                //Log.d(TAG, "Button: Fall");
                 return true;
             }
         }));
         //add(Layer.controller, new MapLoader(context));
         add(Layer.controller, new CollisionChecker(player));
-    }
 
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-//            player.jump();
-//        }
-//        return super.onTouchEvent(event);
-//    }
+        add(Layer.touch, new Button(R.mipmap.arrow_left, 0.0f, 0.0f, 0.0f, 0.0f, new Button.Callback() {
+            @Override
+            public boolean onTouch(Button.Action action) {
+                return false;
+            }
+
+        }));
+        add(Layer.touch, new Button(R.mipmap.arrow_right, 0.0f, 0.0f, 0.0f, 0.0f, new Button.Callback() {
+            @Override
+            public boolean onTouch(Button.Action action) {
+                return false;
+            }
+
+        }));
+
+    }
 
     @Override
     protected int getTouchLayerIndex() {

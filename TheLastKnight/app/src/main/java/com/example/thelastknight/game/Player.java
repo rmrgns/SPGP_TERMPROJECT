@@ -87,24 +87,25 @@ public class Player extends AnimSprite implements IBoxCollidable {
     private Platform findNearestPlatform(float foot) {
         Platform nearest = null;
         MainScene scene = (MainScene) BaseScene.getTopScene();
-        ArrayList<IGameObject> platforms = scene.getObjectsAt(MainScene.Layer.platform);
-        float top = Metrics.game_height;
-        for (IGameObject obj: platforms) {
-            Platform platform = (Platform) obj;
-            RectF rect = platform.getCollisionRect();
-            if (rect.left > x || x > rect.right) {
-                continue;
-            }
-            //Log.d(TAG, "foot:" + foot + " platform: " + rect);
-            if (rect.top < foot) {
-                continue;
-            }
-            if (top > rect.top) {
-                top = rect.top;
-                nearest = platform;
-            }
-            //Log.d(TAG, "top=" + top + " gotcha:" + platform);
-        }
+        //ArrayList<IGameObject> platforms = scene.getObjectsAt(MainScene.Layer.platform);
+        //float top = Metrics.game_height;
+        //for (IGameObject obj: platforms) {
+        //    Platform platform = (Platform) obj;
+        //    RectF rect = platform.getCollisionRect();
+        //    if (rect.left > x || x > rect.right) {
+        //        continue;
+        //    }
+        //    //Log.d(TAG, "foot:" + foot + " platform: " + rect);
+        //    if (rect.top < foot) {
+        //        continue;
+        //    }
+        //    if (top > rect.top) {
+        //        top = rect.top;
+        //        nearest = platform;
+        //    }
+        //    //Log.d(TAG, "top=" + top + " gotcha:" + platform);
+        //}
+        //return nearest;
         return nearest;
     }
 
@@ -136,30 +137,18 @@ public class Player extends AnimSprite implements IBoxCollidable {
             state = State.doubleJump;
         }
     }
-    public void fall() {
-        if (state != State.running) return;
-        float foot = collisionRect.bottom;
-        Platform platform = findNearestPlatform(foot);
-        if (platform == null) return;
-        if (!platform.canPass()) return;
-        state = State.falling;
-        dstRect.offset(0, 0.001f);
-        collisionRect.offset(0, 0.001f);
-        jumpSpeed = 0;
-    }
-    public void slide(boolean startsSlide) {
-        if (state == State.running && startsSlide) {
-            state = State.slide;
-            fixCollisionRect();
-            return;
-        }
-        if (state == State.slide && !startsSlide) {
-            state = State.running;
-            fixCollisionRect();
-            return;
-        }
+
+    public void attack1() {
+
     }
 
+    public void attack2() {
+
+    }
+
+    public void gaugeAttack() {
+
+    }
     public void hurt(Obstacle obstacle) {
         if (state == State.hurt) return;
         state = State.hurt;
