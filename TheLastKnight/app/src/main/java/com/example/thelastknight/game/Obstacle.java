@@ -6,6 +6,7 @@ import android.view.animation.BounceInterpolator;
 
 import com.example.framework.res.BitmapPool;
 import com.example.framework.scene.RecycleBin;
+import com.example.thelastknight.R;
 
 import java.util.Random;
 

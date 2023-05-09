@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.example.framework.scene.BaseScene;
 import com.example.framework.view.GameView;
-import com.example.thelastknight.R;
 import com.example.thelastknight.game.MainScene;
 
 public class MainActivity extends AppCompatActivity {

@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import com.example.framework.objects.Button;
 import com.example.framework.scene.BaseScene;
 import com.example.framework.view.Metrics;
+import com.example.thelastknight.R;
 
 import java.util.Random;
 
@@ -22,14 +23,14 @@ public class MainScene extends BaseScene {
         Metrics.setGameSize(16.0f, 9.0f);
         initLayers(Layer.COUNT);
 
-        add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_1, -0.2f));
-        add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_2, -0.4f));
-        add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_3, -0.6f));
+        add(Layer.bg, new HorzScrollBackground(R.mipmap.bg, -0.2f));
+        //add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_2, -0.4f));
+        //add(Layer.bg, new HorzScrollBackground(R.mipmap.cookie_run_bg_3, -0.6f));
 
         player = new Player();
         add(Layer.player, player);
 
-        add(Layer.touch, new Button(R.mipmap.btn_slide_n, 1.5f, 8.0f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 1.5f, 8.0f, 2.0f, 0.75f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 //Log.d(TAG, "Button: Slide");
@@ -37,7 +38,7 @@ public class MainScene extends BaseScene {
                 return true;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.btn_jump_n, 14.5f, 7.7f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 14.5f, 7.7f, 2.0f, 0.75f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
@@ -47,7 +48,17 @@ public class MainScene extends BaseScene {
                 return true;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.btn_fall_n, 14.5f, 8.5f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.atk_btn_1, 14.5f, 8.5f, 2.0f, 0.75f, new Button.Callback() {
+            @Override
+            public boolean onTouch(Button.Action action) {
+                if (action == Button.Action.pressed) {
+                    player.fall();
+                }
+                //Log.d(TAG, "Button: Fall");
+                return true;
+            }
+        }));
+        add(Layer.touch, new Button(R.mipmap.atk_btn_2, 14.5f, 8.5f, 2.0f, 0.75f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {

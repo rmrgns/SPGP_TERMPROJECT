@@ -1,11 +1,10 @@
 package com.example.thelastknight.game;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.RectF;
 
+import com.example.thelastknight.R;
 import com.example.framework.interfaces.IBoxCollidable;
 import com.example.framework.interfaces.IGameObject;
 import com.example.framework.objects.AnimSprite;

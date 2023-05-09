@@ -6,8 +6,8 @@ import com.example.framework.scene.RecycleBin;
 
 import java.util.Random;
 
-import kr.ac.tukorea.ge.spgp2023.cookierun.R;
-import kr.ac.tukorea.ge.spgp2023.framework.scene.RecycleBin;
+//import kr.ac.tukorea.ge.spgp2023.cookierun.R;
+//import kr.ac.tukorea.ge.spgp2023.framework.scene.RecycleBin;
 
 public class Platform extends MapObject {
     private Type type;
@@ -21,9 +21,9 @@ public class Platform extends MapObject {
         int width() { return widths[this.ordinal()]; }
         int height() { return heights[this.ordinal()]; }
         static int[] resIds = {
-                R.mipmap.cookierun_platform_480x48,
-                R.mipmap.cookierun_platform_124x120,
-                R.mipmap.cookierun_platform_120x40,
+                //R.mipmap.cookierun_platform_480x48,
+                //R.mipmap.cookierun_platform_124x120,
+                //R.mipmap.cookierun_platform_120x40,
         };
         static int[] widths = { 10, 2, 3 };
         static int[] heights = { 2, 2, 1 };
