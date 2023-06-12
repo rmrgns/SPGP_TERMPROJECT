@@ -31,15 +31,22 @@ public class MainScene extends BaseScene {
         add(Layer.touch, new Button(R.mipmap.atk_btn_1, 1.0f, 8.0f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                player.attack1();
+                if (action == Button.Action.pressed) {
+                    player.moveLeft();
+                    player.attack1();
+
+                }
                 return true;
             }
         }));
+
         add(Layer.touch, new Button(R.mipmap.atk_btn_2, 1.0f, 6.5f, 1.0f, 1.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
+                    player.moveLeft();
                     player.attack2();
+
                 }
                 return true;
             }
@@ -48,7 +55,9 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
+                    player.moveRight();
                     player.attack1();
+
                 }
                 return true;
             }
@@ -57,7 +66,9 @@ public class MainScene extends BaseScene {
             @Override
             public boolean onTouch(Button.Action action) {
                 if (action == Button.Action.pressed) {
+                    player.moveRight();
                     player.attack2();
+
                 }
                 return true;
             }
@@ -75,17 +86,23 @@ public class MainScene extends BaseScene {
         //add(Layer.controller, new MapLoader(context));
         add(Layer.controller, new CollisionChecker(player));
 
-        add(Layer.touch, new Button(R.mipmap.arrow_left, 0.0f, 0.0f, 0.0f, 0.0f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.arrow_left, 0.0f, 0.0f, 8.0f, 9.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                return false;
+                if (action == Button.Action.pressed) {
+                    player.moveLeft();
+                }
+                return true;
             }
 
         }));
-        add(Layer.touch, new Button(R.mipmap.arrow_right, 0.0f, 0.0f, 0.0f, 0.0f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.arrow_right, 8.0f, 0.0f, 8.0f, 9.0f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                return false;
+                if (action == Button.Action.pressed) {
+                    player.moveRight();
+                }
+                return true;
             }
 
         }));

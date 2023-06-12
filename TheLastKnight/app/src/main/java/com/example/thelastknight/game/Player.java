@@ -149,6 +149,13 @@ public class Player extends AnimSprite implements IBoxCollidable {
     public void gaugeAttack() {
 
     }
+    public void moveLeft() {
+
+    }
+
+    public void moveRight() {
+
+    }
     public void hurt(Obstacle obstacle) {
         if (state == State.hurt) return;
         state = State.hurt;
