@@ -120,31 +120,13 @@ public class Obstacle extends MapObject {
         }
     }
 
-    protected static Modifier[] MODIFIERS = {
-            new Modifier(0.78f, 0.78f*99/63f, R.mipmap.epn01_tm01_jp1a),
-            new AnimModifier(1, 131/81f, new int[] {
-                    R.mipmap.trans_00p,
-                    R.mipmap.epn01_tm01_jp1up_01,
-                    R.mipmap.epn01_tm01_jp1up_02,
-                    R.mipmap.epn01_tm01_jp1up_03,
-                    R.mipmap.epn01_tm01_jp1up_04,
-            }, 64/131f),
-            new AnimModifier(1.1f, 1.1f*222/87f, new int[] {
-                    R.mipmap.trans_00p,
-                    R.mipmap.epn01_tm01_jp2up_01,
-                    R.mipmap.epn01_tm01_jp2up_02,
-                    R.mipmap.epn01_tm01_jp2up_03,
-                    R.mipmap.epn01_tm01_jp2up_04,
-                    R.mipmap.epn01_tm01_jp2up_05,
-            }, 68/222f),
-            new MoveModifier(1, 482/86f, R.mipmap.epn01_tm01_sda),
-    } ;
-    public static final int COUNT = MODIFIERS.length;
+
+
 
     private void init(int index, float unitLeft, float unitTop) {
         animator = null;
         bitmap = null;
-        modifier = MODIFIERS[index];
+
         modifier.init(this, unitLeft, unitTop);
     }
 

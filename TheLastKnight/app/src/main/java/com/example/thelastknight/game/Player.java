@@ -15,9 +15,8 @@ import com.example.framework.view.Metrics;
 import java.util.ArrayList;
 
 public class Player extends AnimSprite implements IBoxCollidable {
-    private float jumpSpeed;
-    private static final float JUMP_POWER = 9.0f;
-    private static final float GRAVITY = 1.0f;
+    private static final int Player_Look = 0;
+
     private RectF collisionRect = new RectF();
     protected Obstacle obstacle;
 
@@ -27,7 +26,7 @@ public class Player extends AnimSprite implements IBoxCollidable {
     }
 
     protected enum State {
-        running, jump, doubleJump, falling, slide, hurt, COUNT
+        running, slide, hurt, COUNT
     }
 //    protected Rect[] srcRects
     protected static Rect[][] srcRects = {
@@ -63,11 +62,6 @@ public class Player extends AnimSprite implements IBoxCollidable {
         case running:
         case slide:
             float foot = collisionRect.bottom;
-            float floor = findNearestPlatformTop(foot);
-            if (foot < floor) {
-                state = State.falling;
-                jumpSpeed = 0;
-            }
             break;
         case hurt:
             if (!CollisionHelper.collides(this, obstacle)) {
@@ -76,37 +70,6 @@ public class Player extends AnimSprite implements IBoxCollidable {
             }
             break;
         }
-    }
-
-    private float findNearestPlatformTop(float foot) {
-        Platform platform = findNearestPlatform(foot);
-        if (platform == null) return Metrics.game_height;
-        return platform.getCollisionRect().top;
-    }
-
-    private Platform findNearestPlatform(float foot) {
-        Platform nearest = null;
-        MainScene scene = (MainScene) BaseScene.getTopScene();
-        //ArrayList<IGameObject> platforms = scene.getObjectsAt(MainScene.Layer.platform);
-        //float top = Metrics.game_height;
-        //for (IGameObject obj: platforms) {
-        //    Platform platform = (Platform) obj;
-        //    RectF rect = platform.getCollisionRect();
-        //    if (rect.left > x || x > rect.right) {
-        //        continue;
-        //    }
-        //    //Log.d(TAG, "foot:" + foot + " platform: " + rect);
-        //    if (rect.top < foot) {
-        //        continue;
-        //    }
-        //    if (top > rect.top) {
-        //        top = rect.top;
-        //        nearest = platform;
-        //    }
-        //    //Log.d(TAG, "top=" + top + " gotcha:" + platform);
-        //}
-        //return nearest;
-        return nearest;
     }
 
     private void fixCollisionRect() {
@@ -128,15 +91,6 @@ public class Player extends AnimSprite implements IBoxCollidable {
     }
 
     protected State state = State.running;
-    public void jump() {
-        if (state == State.running) {
-            state = State.jump;
-            jumpSpeed = -JUMP_POWER;
-        } else if (state == State.jump) {
-            jumpSpeed = -JUMP_POWER;
-            state = State.doubleJump;
-        }
-    }
 
     public void attack1() {
 
